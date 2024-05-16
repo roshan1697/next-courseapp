@@ -1,11 +1,24 @@
+'use client'
+
 import React, { useState } from 'react'
 import AppBar from '../appbar'
 import CourseCard from '../coursecard'
 import FilterButton from '../filterbutton'
-import { Data } from '@/lib/coursedata'
-import Footer from '../footer'
 
-const LandingPage = () => {
+import Footer from '../footer'
+interface CourseData {
+  name: string;
+  instructor: string;
+  description: string;
+  enrollmentStatus: string;
+  thumbnail: string;
+  duration: string;
+  schedule: string;
+  location: string;
+  prerequisites: string[];
+}
+const LandingPage = ({course}:CourseData[]) => {
+
   return (
     <div className=''>
         <AppBar userSignIn={false}/>
@@ -16,8 +29,8 @@ const LandingPage = () => {
         </div>
         <div className='flex flex-wrap justify-evenly'>
 
-        {Data.map((data)=>{
-          return <CourseCard key={data.id} title={data.name} description={data.description}/>
+        {course.map((data,ind)=>{
+          return <CourseCard key={ind} title={data.name} description={data.description} thumbnail={data.thumbnail}/>
         })}
         </div>
         </div>
