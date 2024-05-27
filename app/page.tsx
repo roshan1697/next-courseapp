@@ -1,9 +1,7 @@
 
 import LandingPage from "@/components/landingpage";
 import axios from "axios";
-import Image from "next/image";
 
-import useSWR from 'swr'
  const getData = async()=> {
   const response = await axios.get('http://localhost:3000/api/user')
   

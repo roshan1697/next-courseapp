@@ -1,15 +1,16 @@
 import React from 'react'
+import Logo from '../ui/logo'
 
 const AppBar = ({
     userSignIn
 }: boolean) => {
+
     return (
         <div className="navbar bg-base-100 fixed z-10 h-16 bg-opacity-95 backdrop-blur
 
         ">
-            <div className="flex-1">
-                <a className="btn btn-ghost text-xl">Course</a>
-            </div>
+            <Logo/>
+            
             <div className="flex-none gap-2">
                 <div className="form-control">
                     <input type="text" placeholder="Search" className="input input-bordered w-24 md:w-auto" />

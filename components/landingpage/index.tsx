@@ -1,6 +1,5 @@
-'use client'
 
-import React, { useState } from 'react'
+
 import AppBar from '../appbar'
 import CourseCard from '../coursecard'
 import FilterButton from '../filterbutton'
@@ -30,7 +29,9 @@ const LandingPage = ({course}:CourseData[]) => {
         <div className='flex flex-wrap justify-evenly'>
 
         {course.map((data,ind)=>{
-          return <CourseCard key={ind} title={data.name} description={data.description} thumbnail={data.thumbnail}/>
+          return <CourseCard key={ind} title={data.name} description={data.description} thumbnail={data.thumbnail} 
+          id={data.id}
+          />
         })}
         </div>
         </div>
