@@ -17,8 +17,12 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
+  provider                 String?
+  providerAccountId        String?
+  image         String?
   enrolledID Int
   enrolled Enrollment[]
+  bookmark Bookmark[]
 }
 model Enrollment {
   id       Int      @id @default(autoincrement())
@@ -27,6 +31,14 @@ model Enrollment {
   user     User     @relation(fields: [userId], references: [id])
   course   Course   @relation(fields: [courseId], references: [id])
 }
+model Bookmark {
+    id       Int      @id @default(autoincrement())
+  userId   Int
+  courseId Int
+  user     User     @relation(fields: [userId], references: [id])
+  course   Course   @relation(fields: [courseId], references: [id])
+}
+
 model Course {
   id            Int      @id @default(autoincrement())
   name          String?
@@ -40,6 +52,7 @@ model Course {
   prerequisites String[]
   syllabus      Syllabus[]
   student Enrollment[]
+  bookmark Bookmark[]
 }
 
 model Syllabus {

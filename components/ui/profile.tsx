@@ -2,10 +2,12 @@
 import { signIn, signOut } from "next-auth/react"
 
 
-const Profile = ({userSign}:boolean) => {
+const Profile = ({session}) => {
+    
+console.log(session)
   return (
     <>
-    {userSign ? 
+    {session ? 
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                         <div className="w-10 rounded-full">
@@ -28,11 +30,14 @@ const Profile = ({userSign}:boolean) => {
                     </ul>
                 </div>
                 :
+                <div>
+
                 <button className="btn btn-primary"
                 onClick={()=>{
                     signIn()
                 }}
                 >SignIn</button>
+                </div>
             }
     </>
   )

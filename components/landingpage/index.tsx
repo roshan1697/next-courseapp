@@ -1,10 +1,9 @@
 
-
 import AppBar from '../appbar'
 import CourseCard from '../coursecard'
 import FilterButton from '../filterbutton'
-
 import Footer from '../footer'
+
 interface CourseData {
   name: string;
   instructor: string;
@@ -16,11 +15,11 @@ interface CourseData {
   location: string;
   prerequisites: string[];
 }
-const LandingPage = ({course}:CourseData[]) => {
+const LandingPage = async({course}:CourseData[]) => {
 
   return (
     <div className=''>
-        <AppBar userSignIn={false}/>
+        <AppBar />
         <div className='p-4 pt-16'>
         <div className='p-1 flex justify-end'>
 
@@ -35,7 +34,7 @@ const LandingPage = ({course}:CourseData[]) => {
         })}
         </div>
         </div>
-
+       
         <Footer/>
         </div>
   )
